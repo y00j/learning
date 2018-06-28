@@ -1,0 +1,42 @@
+{
+  "catalog": [
+    {
+      "categoryName": "Watches",
+      "categoryId": "1",
+      "itemsCount": 2,
+      "items": [
+        {
+          "itemId": "watch-identifier-1",
+          "itemName": "Sports Watch",
+          "price": 150,
+          "currency": "EUR"
+        },
+        {
+          "itemId": "watch-identifier-2",
+          "itemName": "Cocktail Watch",
+          "price": 400,
+          "currency": "USD"
+        }
+      ]
+    },
+    {
+      "categoryName": "Clothing",
+      "categoryId": "2",
+      "itemsCount": 2,
+      "items": [
+        {
+          "itemId": "clothes-identifier-1",
+          "itemName": "Sports clothing",
+          "price": 200,
+          "currency": "EUR"
+        },
+        {
+          "itemId": "clothes-identifier-2",
+          "itemName": "Cocktail clothing",
+          "price": 10000000,
+          "currency": "USD"
+        }
+      ]
+    }
+  ]
+}
