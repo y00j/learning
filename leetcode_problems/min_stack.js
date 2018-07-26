@@ -2,8 +2,8 @@
  * initialize your data structure here.
  */
 var MinStack = function() {
-  this.min = null;
   this.stack = [];
+  this.mins = [];
 };
 
 /** 
@@ -12,13 +12,24 @@ var MinStack = function() {
 */
 MinStack.prototype.push = function(x) {
   this.stack.push(x);
+  
+  if (this.mins.length === 0 || x <= this.mins[this.mins.length - 1]) {
+      this.mins.push(x);
+  }
 };
 
 /**
 * @return {void}
 */
 MinStack.prototype.pop = function() {
-  return this.stack.pop();    
+  
+  let lastEl = this.stack.pop();
+  if (lastEl === this.mins[this.mins.length - 1]) {
+      this.mins.pop();
+  }
+  
+  return lastEl;
+  
 };
 
 /**
@@ -33,7 +44,7 @@ MinStack.prototype.top = function() {
 * @return {number}
 */
 MinStack.prototype.getMin = function() {
-  return Math.min(...this.stack);
+  return this.mins[this.mins.length - 1];
 };
 
 /** 
