@@ -11,7 +11,7 @@
  * @return {boolean}
  */
 var hasCycle = function(head) {
-  if (head === null || head.next === null) return false;
+  if (!head || !head.next) return false;
   let nodeList = [];
   let curr = head;
   let temp;
