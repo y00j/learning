@@ -38,3 +38,35 @@ var hasCycle = function(head) {
       return false;
   }
 };
+
+// this is the space optimized version.
+var hasCycleNoAddSpace = function(head) {
+  if (!head || !head.next) return false;
+  let slow = head;
+  let fast = head.next;
+  
+  
+//        while(slow != fast){
+//        if(fast == null || fast.next == null){
+//            return false;
+//        }
+//        slow= slow.next;
+//        fast= fast.next.next;
+//    }
+  
+  while (fast) {
+      
+      if (fast == slow) {
+          return true;
+      }
+      
+      if (!fast.next) {
+          fast = null;
+      } else {
+          fast = fast.next.next;
+          slow = slow.next;
+      }
+  }
+
+  return false;
+};
