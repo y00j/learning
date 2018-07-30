@@ -61,7 +61,6 @@ function searchBackward(arr, idx, n) {
 
 function searchForward(arr, idx, n) {
   for (let i = idx + 1; i < arr.length; i++) {
-      console.log(i);
       if (arr[i] >= n) return i - 1;
   }
   return undefined;
