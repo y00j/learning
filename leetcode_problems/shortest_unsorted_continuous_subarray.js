@@ -14,18 +14,10 @@ var findUnsortedSubarray = function(nums) {
       
       
       if (nextEl < nums[i]) {
-          let searchBackIdx = searchBackward(nums, i, nextEl);
-          
-          if (searchBackIdx) {
-              startIdx = searchBackIdx;
-          } else {
-              startIdx = 0;    
-          }
-          
+          startIdx = i;
           break;
       }
   }
-  console.log(startIdx);
   if (startIdx === undefined) return 0;
   
   for (let i = nums.length - 1; i > 0; i--) {
@@ -33,21 +25,13 @@ var findUnsortedSubarray = function(nums) {
       let currEl = nums[i];
       
       if (prevEl > nums[i]) {
-          let searchForwardIdx = searchForward(nums, i, prevEl);
-          console.log(searchForwardIdx);
-          if (searchForwardIdx) {
-              endIdx = searchForwardIdx;
-          } else {
-              endIdx = nums.length - 1;
-              
-          }
+          endIdx = i;
           break;
       }
   }
   
   let subArr = nums.slice(startIdx, endIdx + 1);
   let [min, max] = [Math.min(...subArr), Math.max(...subArr)];
-  console.log(min, max);
   
   let newStartIdx = searchBackward(nums, startIdx, min) 
   if (newStartIdx) {
@@ -62,9 +46,10 @@ var findUnsortedSubarray = function(nums) {
   } else {
       endIdx = nums.length - 1;
   }
-  console.log(startIdx, endIdx);
+  
   return (endIdx - startIdx + 1);
 };
+
 
 function searchBackward(arr, idx, n) {
   
