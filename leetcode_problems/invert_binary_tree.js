@@ -23,3 +23,7 @@ var invertTree = function(root) {
   
   return root;
 };
+
+//iterative solution
+
+ 
